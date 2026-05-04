@@ -12,10 +12,12 @@ class Student{
 private:
     string name;
     string department;
+    int id;
     vector<Subject> subjects;
 
 public:
-    Student(string sname, string dep): name(sname), department(dep){}
+    Student(int idNo, string sname, string dep): id(idNo), name(sname), department(dep){}
+    int getID(){ return id;}
     string getName(){return name;}
     string getDept(){return department;}
     void setName(string n){ name = n;}
