@@ -1,27 +1,34 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
 #include <iostream>
 #include <vector>
-using namespace std;
-
+#include <string>
 
 struct Subject {
-    string name;
+    std::string name;
     double grade;
 };
 
-class Student{
+class Student {
 private:
-    string name;
-    string department;
+    std::string name;
+    std::string department;
     int id;
-    vector<Subject> subjects;
+    std::vector<Subject> subjects;
 
 public:
-    Student(int idNo, string sname, string dep): id(idNo), name(sname), department(dep){}
-    int getID(){ return id;}
-    string getName(){return name;}
-    string getDept(){return department;}
-    void setName(string n){ name = n;}
-    void setDept(string d){ department = d;}
-    void addSub(Subject s){ subjects.push_back(s);}
 
+    Student(int idNo, std::string dep, std::string sname) : name(sname), department(dep), id(idNo) {}
+
+    int getId() { return id; }
+
+    std::string getName() { return name; }
+    std::string getDept() { return department; }
+
+    void setName(std::string n) { name = n; }
+    void setDept(std::string d) { department = d; }
+    void addSub(Subject s) { subjects.push_back(s); }
 };
+
+#endif
