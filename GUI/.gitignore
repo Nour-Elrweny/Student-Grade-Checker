@@ -41,6 +41,8 @@ Thumbs.db
 *.qbs.user*
 CMakeLists.txt.user*
 CMakeLists.txt
+GUI/CMakeLists.txt
+
 
 
 # xemacs temporary files
