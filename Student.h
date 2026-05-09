@@ -1,6 +1,7 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
+using namespace std;
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,24 +14,33 @@ struct Subject {
 
 class Student {
 private:
-    std::string name;
-    std::string department;
     int id;
-    std::vector<Subject> subjects;
+    string name;
+    string department;
+    vector<Subject> subjects;
+    
 
 public:
+    Student( int sid,string sname, string dep): id(sid) , name(sname), department(dep){}
+    string getName(){return name;}
+    string getDept(){return department;}
+    int getId() const { return id; }
+    void setName(string n){ name = n;}
+    void setDept(string d){ department = d;}
+    void setId(int i){ id = i;}
+    void addSub(Subject s){ subjects.push_back(s);}
 
     Student(int idNo, std::string dep, std::string sname) : name(sname), department(dep), id(idNo) {}
 
     int getId() { return id; }
 
     //Getters
-    std::string getName() { return name; }
-    std::string getDept() { return department; }
+    string getName() { return name; }
+    string getDept() { return department; }
 
     //Setters
-    void setName(std::string n) { name = n; }
-    void setDept(std::string d) { department = d; }
+    void setName(string n) { name = n; }
+    void setDept(string d) { department = d; }
     void addSub(Subject s) { subjects.push_back(s); }
 };
 

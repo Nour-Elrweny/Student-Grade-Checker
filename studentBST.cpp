@@ -37,8 +37,7 @@ Node *StudentBST::insertHelper(Node *r, Student s)
     return r;
 }
 
-void StudentBST::addStudent(Student s)
-{
+void StudentBST::addStudent(Student s) {
     root = insertHelper(root, s);
 }
 
