@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 
+// The Student class represents a student with their name, department, ID, and a list of subjects with their corresponding grades.
 struct Subject {
     std::string name;
     double grade;
@@ -23,9 +24,11 @@ public:
 
     int getId() { return id; }
 
+    //Getters
     std::string getName() { return name; }
     std::string getDept() { return department; }
 
+    //Setters
     void setName(std::string n) { name = n; }
     void setDept(std::string d) { department = d; }
     void addSub(Subject s) { subjects.push_back(s); }

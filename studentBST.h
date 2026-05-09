@@ -4,7 +4,7 @@
 #include "Node.h"
 
 
-
+// The StudentBST class represents a binary search tree that manages student records, allowing for adding, removing, searching, and filtering students based on various criteria.
 class StudentBST {
 private:
     Node* root;
