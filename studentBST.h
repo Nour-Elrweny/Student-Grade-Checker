@@ -16,9 +16,11 @@ private:
     Student* searchByIdHelper(Node* r, int targetId);
     void filterByMinAvgHelper(Node* r, float minAvg, std::vector<Student>& results);
     void filterByDeptHelper(Node* r, std::string deptName, std::vector<Student>& results);
+    void findTopHelper(Node* r, int& topId, float& maxAvg);
+    void findLowestHelper(Node* r, int& lowestId, float& minAvg);
+    void getFailedHelper(Node* r, std::vector<Student>& results, float passMark);
+    void displayAllHelper(Node* r);
 
-
-    
 
 public:
     StudentBST();
@@ -29,8 +31,14 @@ public:
     void filterByMinAverage(float minAvg, std::vector<Student>& results);
     void filterByDept(std::string deptName, std::vector<Student>& results);
 
-    float calculateAverage(const Student& s); // to be implemented later :)
-
+    float calculateAverage(const Student& s);
+    bool addSubjectToStudent(int id, Subject sub);
+    bool updateSubjectGrade(int id, std::string subjectName, float newGrade);
+    int getTopStudent();
+    int getLowestStudent();
+    void getFailedStudents(std::vector<Student>& results, float passMark);
+    void displayStudentReport(int id);
+    void displayAllStudents();
 
 };
 
