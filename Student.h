@@ -42,7 +42,7 @@ public:
     void setName(string n) { name = n; }
     void setDept(string d) { department = d; }
     void addSub(Subject s) { subjects.push_back(s); }
-    vector<Subject>& getSubjects() { return subjects; }
+    const vector<Subject>& getSubjects() const { return subjects; }
 };
 
 #endif

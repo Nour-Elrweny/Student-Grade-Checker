@@ -162,10 +162,10 @@ void StudentBST::filterByDeptHelper(Node* r, std::string deptName, std::vector<S
     filterByDeptHelper(r->right, deptName, results);
 }
 
-float StudentBST::calculateAverage(const Student& s)
+float StudentBST::calculateAverage(const Student& students)
 {
     // Get the student's subjects
-    const vector<Subject>& subs = s.getSubjects();
+    const vector<Subject>& subs = students.getSubjects();
 
     // If the student has no subjects, return 0
     if (subs.empty())
@@ -197,17 +197,17 @@ bool StudentBST::addSubjectToStudent(int id, Subject sub)
     return true;
 }
 
-bool StudentBST::updateSubjectGrade(int id, string subjectName, float newGrade)
+/* bool StudentBST::updateSubjectGrade(int id, string subjectName, float newGrade)
 {
     // Search for the student by ID
-    Student* s = searchById(id);
+    Student* student = searchById(id);
 
     // If student is not found, return false
     if (student == nullptr)
         return false; // not found
 
     // Get the student's subjects so we can update one of them
-    vector<Subject>& subs = s->getSubjects();
+    vector<Subject>& subs = student->getSubjects();
 
     // Search for the subject by name
     for (int i = 0; i < subs.size(); i++)
@@ -223,7 +223,7 @@ bool StudentBST::updateSubjectGrade(int id, string subjectName, float newGrade)
     // Subject was not found
     return false;
 }
-
+*/
 void StudentBST::findTopHelper(Node* r, int& topId, float& maxAvg)
 {
     // Stop if the current node is empty
@@ -345,97 +345,3 @@ void StudentBST::getFailedStudents(std::vector<Student>& results, float passMark
     cout << endl;
 }
 
-void StudentBST::displayStudentReport(int id)
-{
-    // Search for the student by ID
-    Student* studentPtr = searchById(id);
-
-    // If the student is not found, print a message
-    if (studentPtr == nullptr)
-    {
-        cout << "Student not found." << endl;
-        return;
-    }
-
-    // Create a local object from the found student
-    Student student = *studentPtr;
-
-    cout << "----- Student Report -----" << endl;
-    cout << "ID: " << student.getId() << endl;
-    cout << "Name: " << student.getName() << endl;
-    cout << "Department: " << student.getDept() << endl;
-
-    // Get all subjects of this student
-    const vector<Subject>& subs = student.getSubjects();
-
-    // If the student has no subjects, print a message
-    if (subs.empty())
-    {
-        cout << "No subjects found." << endl;
-    }
-    else
-    {
-        // Print each subject and its grade
-        cout << "Subjects and Grades:" << endl;
-        for (int i = 0; i < subs.size(); i++)
-        {
-            cout << subs[i].name << " : " << subs[i].grade << endl;
-        }
-    }
-
-    // Calculate and print the average
-    float avg = calculateAverage(student);
-    cout << "Average: " << avg << endl;
-
-    // Print pass/fail status
-    if (avg >= 60)
-        cout << "Status: Passed" << endl;
-    else
-        cout << "Status: Failed" << endl;
-
-    cout << "--------------------------" << endl;
-}
-
-void StudentBST::displayAllHelper(Node* r)
-{
-    // Stop if the current node is empty
-    if (r == nullptr)
-        return;
-
-    // First, go to the left subtree
-    displayAllHelper(r->left);
-
-    // Get the current student and calculate the average
-    const Student& student = r->data;
-    float avg = calculateAverage(student);
-
-    // Print student basic information
-    cout << "ID: " << student.getId()
-        << " | Name: " << student.getName()
-        << " | Department: " << student.getDept()
-        << " | Average: " << avg;
-
-    // Print pass/fail status
-    if (avg >= 60)
-        cout << " | Status: Passed" << endl;
-    else
-        cout << " | Status: Failed" << endl;
-
-    // Then, go to the right subtree
-    displayAllHelper(r->right);
-}
-
-void StudentBST::displayAllStudents()
-{
-    // If the tree is empty, print a message
-    if (root == nullptr)
-    {
-        cout << "No students found." << endl;
-        return;
-    }
-
-    // Print all students in sorted order by ID
-    cout << "----- All Students -----" << endl;
-    displayAllHelper(root);
-    cout << "------------------------" << endl;
-}
