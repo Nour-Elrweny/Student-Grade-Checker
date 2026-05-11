@@ -33,4 +33,4 @@ private:
     QLabel* createLabel(const QString &text);
 };
 
-#endif // DELETESTUDENT_H
+#endif

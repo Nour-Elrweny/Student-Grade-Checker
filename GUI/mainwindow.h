@@ -27,4 +27,4 @@ private:
     QPushButton *Summaries;
 };
 
-#endif // MAINWINDOW_H
+#endif

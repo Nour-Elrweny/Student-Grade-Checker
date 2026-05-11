@@ -147,5 +147,5 @@ void AddStudent::onSubmitClicked()
 
 void AddStudent::onCancelClicked()
 {
-    close(); // or navigate back to main window
+    close();
 }

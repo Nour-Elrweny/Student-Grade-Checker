@@ -43,4 +43,4 @@ private:
     QLabel* createLabel(const QString &text);
 };
 
-#endif // ADDSTUDENT_H
+#endif
