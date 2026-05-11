@@ -1,6 +1,7 @@
 #ifndef DELETESTUDENT_H
 #define DELETESTUDENT_H
 
+#include "StudentBST.h"
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>

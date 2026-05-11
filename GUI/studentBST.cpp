@@ -1,5 +1,4 @@
 #include "StudentBST.h"
-using namespace std;
 
 StudentBST::StudentBST()
 {
@@ -194,6 +193,7 @@ bool StudentBST::addSubjectToStudent(int id, Subject sub)
 
     // Add the new subject to the student
     student->addSub(sub);
+    cout << "added successfully ";
     return true;
 }
 
@@ -326,63 +326,24 @@ void StudentBST::getFailedStudents(std::vector<Student>& results, float passMark
     // Fill the vector with failed students
     getFailedHelper(root, results, passMark);
 
+    // If no failed students were found, print a message
     if (results.empty())
     {
-        return;
-    }
-}
-
-/*void StudentBST::displayStudentReport(int id)
-{
-    // Search for the student by ID
-    Student* studentPtr = searchById(id);
-
-    // If the student is not found, print a message
-    if (studentPtr == nullptr)
-    {
-        cout << "Student not found." << endl;
+        cout << "No failed students." << endl;
         return;
     }
 
-    // Create a local object from the found student
-    Student student = *studentPtr;
-
-    cout << "----- Student Report -----" << endl;
-    cout << "ID: " << student.getId() << endl;
-    cout << "Name: " << student.getName() << endl;
-    cout << "Department: " << student.getDept() << endl;
-
-    // Get all subjects of this student
-    const vector<Subject>& subs = student.getSubjects();
-
-    // If the student has no subjects, print a message
-    if (subs.empty())
+    // Print the IDs of failed students
+    cout << "Failed students IDs: ";
+    for (int i = 0; i < results.size(); i++)
     {
-        cout << "No subjects found." << endl;
+        cout << results[i].getId();
+
+        if (i != results.size() - 1)
+            cout << ", ";
     }
-    else
-    {
-        // Print each subject and its grade
-        cout << "Subjects and Grades:" << endl;
-        for (int i = 0; i < subs.size(); i++)
-        {
-            cout << subs[i].name << " : " << subs[i].grade << endl;
-        }
-    }
-
-    // Calculate and print the average
-    float avg = calculateAverage(student);
-    cout << "Average: " << avg << endl;
-
-    // Print pass/fail status
-    if (avg >= 60)
-        cout << "Status: Passed" << endl;
-    else
-        cout << "Status: Failed" << endl;
-
-    cout << "--------------------------" << endl;
+    cout << endl;
 }
-*/  
 
 void StudentBST::getAllStudents(std::vector<Student>& results)
 {
@@ -395,7 +356,7 @@ void StudentBST::getAllStudentsHelper(Node* r, std::vector<Student>& results)
         return;
 
     getAllStudentsHelper(r->left, results);
-    results.push_back(r->data);        
+    results.push_back(r->data);
     getAllStudentsHelper(r->right, results);
 }
 

@@ -1,6 +1,5 @@
 #ifndef STUDENTBST_H
 #define STUDENTBST_H
-using namespace std;
 #include "Student.h"
 #include "Node.h"
 
@@ -39,7 +38,6 @@ public:
     int getLowestStudent();
     void getFailedStudents(std::vector<Student>& results, float passMark);
     void getAllStudents(std::vector<Student>& results);
-
 
 };
 

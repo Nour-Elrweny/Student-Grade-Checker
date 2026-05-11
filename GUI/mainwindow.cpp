@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "addstudent.h"
 #include "deletestudent.h"
+#include "reportsummaries.h"
+#include "search.h"
 #include <QLabel>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -80,6 +82,8 @@ MainWindow::~MainWindow()
     // Qt handles child widget deletion automatically
 }
 
+StudentBST *m_bst = new StudentBST();
+
 void MainWindow::onAddStudentClicked()
 {
     AddStudent *page1 = new AddStudent();
@@ -93,10 +97,11 @@ void MainWindow::onDeleteStudentClicked()
 }
 void MainWindow::SearchFilterStudent()
 {
-    // Handle Button 2 click
+    Search *page4 = new Search(m_bst);
+    page4->show();
 }
-
 void MainWindow::SummariesStudent()
 {
-    // Handle Button 3 click
+    ReportSummaries *page3 = new ReportSummaries(m_bst);
+    page3->show();
 }

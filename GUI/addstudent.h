@@ -1,6 +1,7 @@
 #ifndef ADDSTUDENT_H
 #define ADDSTUDENT_H
 
+#include "StudentBST.h"
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
